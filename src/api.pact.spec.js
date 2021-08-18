@@ -1,8 +1,6 @@
-import { Pact, Matchers } from '@pact-foundation/pact';
+import { Pact } from '@pact-foundation/pact';
 import { API } from './api';
-// import { eachLike, like, regex } from '@pact-foundation/pact';
-// import { Matchers } from '@pact-foundation/pact'
-const { eachLike, like, regex  } = Matchers
+import { eachLike, like, regex } from '@pact-foundation/pact/dsl/matchers';
 import { Product } from './product';
 
 const mockProvider = new Pact({
@@ -18,7 +16,7 @@ describe('API Pact test', () => {
   describe('retrieving a product', () => {
     test('ID 10 exists', async () => {
       // Arrange
-      const expectedProduct = { id: '10', type: 'CREDIT_CARD', name: '28 Degrees', color: "red"}
+      const expectedProduct = { id: '10', type: 'CREDIT_CARD', name: '28 Degrees'}
 
       // Uncomment to see this fail
       // const expectedProduct = { id: '10', type: 'CREDIT_CARD', name: '28 Degrees', price: 30.0, newField: 22}
